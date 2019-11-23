@@ -26,7 +26,9 @@ public interface DisturbingContract {
 
         void start();
 
-        void disturb();
+        void disturb(int userId);
+
+        void free(int userId);
 
     }
 
