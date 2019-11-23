@@ -3,6 +3,8 @@ package com.depromeet.plzdisturb.custom;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.Gravity;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,7 +18,7 @@ import com.depromeet.plzdisturb.model.User;
 public class ProfileView extends LinearLayout {
 
     private int userId;
-    private OnClickUserListener listener;
+    private OnEventListener listener;
     private ImageView ivProfile;
     private TextView tvName;
 
@@ -40,9 +42,33 @@ public class ProfileView extends LinearLayout {
         init();
     }
 
-    public void setOnClickUserListener(OnClickUserListener listener) {
+    public void setOnEventListener(OnEventListener listener) {
         this.listener = listener;
-        setOnClickListener(view -> listener.onClick(userId));
+        setOnTouchListener(new OnTouchListener() {
+
+            Runnable disturbingRunnable = new Runnable() {
+                @Override
+                public void run() {
+                    listener.onDisturbingEvent(userId);
+                    postDelayed(disturbingRunnable, 10000L);
+                }
+            };
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        post(disturbingRunnable);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        removeCallbacks(disturbingRunnable);
+                        listener.onFreeEvent(userId);
+                        break;
+                }
+
+                return true;
+            }
+        });
     }
 
     public void setUser(User user) {

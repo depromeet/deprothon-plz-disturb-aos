@@ -1,5 +1,6 @@
 package com.depromeet.plzdisturb.custom;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
@@ -12,6 +13,7 @@ import androidx.annotation.Nullable;
 import com.depromeet.plzdisturb.R;
 import com.depromeet.plzdisturb.model.User;
 
+import java.util.List;
 import java.util.Random;
 
 public class DisturbingView extends FrameLayout {
@@ -20,7 +22,7 @@ public class DisturbingView extends FrameLayout {
     private Rect nextPosition;
     private SparseArray<ProfileView> profileViewMap;
     private SparseArray<Rect> positionMap;
-    private OnClickUserListener listener;
+    private OnEventListener listener;
 
     private int leftMarginLimit;
     private int topMarginLimit;
@@ -64,8 +66,14 @@ public class DisturbingView extends FrameLayout {
         topMarginLimit = MeasureSpec.getSize(heightMeasureSpec) - profileViewHeight;
     }
 
-    public void setListener(OnClickUserListener listener) {
+    public void setListener(OnEventListener listener) {
         this.listener = listener;
+    }
+
+    public void addUserList(List<User> userList) {
+        for (User user : userList) {
+            addUser(user);
+        }
     }
 
     public void addUser(User user) {
@@ -75,7 +83,7 @@ public class DisturbingView extends FrameLayout {
 
         ProfileView view = new ProfileView(getContext());
         view.setUser(user);
-        view.setOnClickUserListener(userId -> listener.onClick(userId));
+        view.setOnEventListener(listener);
 
         Rect rect = new Rect(nextPosition.left, nextPosition.top, nextPosition.right, nextPosition.bottom);
         profileViewMap.append(user.getId(), view);
