@@ -98,7 +98,12 @@ class RoomActivity : AppCompatActivity(), RoomContract.View {
     }
 
     override fun showShareIntent(link: String?) {
-
+        val sendIntent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, "https://lee-kyungseok.github.io/temp/index.html?code=$code")
+            type = "text/plain"
+        }
+        startActivity(Intent.createChooser(sendIntent, "Share"))
     }
 
 }
