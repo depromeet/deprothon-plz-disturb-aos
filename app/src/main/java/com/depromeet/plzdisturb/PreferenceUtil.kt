@@ -16,3 +16,8 @@ fun updateAccessToken(token: String, context: Context): Boolean {
         .putString(KEY_AUTH_TOKEN, token)
         .commit()
 }
+
+fun deleteAccessToken(context: Context) {
+    PreferenceManager.getDefaultSharedPreferences(context)
+        .edit().clear()
+}

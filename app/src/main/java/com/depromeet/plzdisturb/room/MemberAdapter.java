@@ -77,7 +77,7 @@ public class MemberAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         public void bind(User member) {
             Glide.with(ivProfile)
-                    .load(member.getProfileUrl())
+                    .load(member.getImageUrl())
                     .circleCrop()
                     .into(ivProfile);
 
