@@ -14,8 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".disturbing.DisturbingActivity"></activity>
-        <activity android:name=".room.RoomActivity"></activity>
+        <activity android:name=".makeroom.MakeRoomActivity"></activity>
+        <activity android:name=".disturbing.DisturbingActivity" />
+        <activity android:name=".room.RoomActivity" />
         <activity android:name=".share.ShareActivity">
 
             <!-- <intent-filter> -->
@@ -26,14 +27,11 @@
             <!-- </intent-filter> -->
         </activity>
         <activity android:name=".login.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-             <intent-filter>
-                 <action android:name="android.intent.action.MAIN" />
-
-
-                 <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -50,9 +48,7 @@
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_sdk_api_key" />
 
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
