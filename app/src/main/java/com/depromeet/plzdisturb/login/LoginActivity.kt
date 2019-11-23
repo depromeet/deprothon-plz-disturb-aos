@@ -91,8 +91,6 @@ class LoginActivity : AppCompatActivity() {
                                 call: Call<LoginResponse>,
                                 response: Response<LoginResponse>
                             ) {
-
-                                Log.e(TAG, "asdfsadf ${response}")
                                 response.body()?.let {
                                     updateAccessToken(it.accesstoken, this@LoginActivity)
                                     startActivity(

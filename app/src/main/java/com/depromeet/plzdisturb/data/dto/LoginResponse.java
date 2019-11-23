@@ -2,21 +2,17 @@ package com.depromeet.plzdisturb.data.dto;
 
 public class LoginResponse {
 
-    private String accesstoken;
+    private String accessToken;
 
-    public LoginResponse() {
-
-    }
-
-    public LoginResponse(String accesstoken) {
-        this.accesstoken = accesstoken;
+    public LoginResponse(String accessToken) {
+        this.accessToken = accessToken;
     }
 
     public String getAccesstoken() {
-        return accesstoken;
+        return accessToken;
     }
 
-    public void setAccesstoken(String accesstoken) {
-        this.accesstoken = accesstoken;
+    public void setAccesstoken(String accessToken) {
+        this.accessToken = accessToken;
     }
 }

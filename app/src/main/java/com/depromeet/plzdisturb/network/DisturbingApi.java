@@ -1,6 +1,7 @@
 package com.depromeet.plzdisturb.network;
 
 import com.depromeet.plzdisturb.data.dto.CommonResponse;
+import com.depromeet.plzdisturb.data.dto.CreateRoomRequest;
 import com.depromeet.plzdisturb.data.dto.DisturbRequest;
 import com.depromeet.plzdisturb.data.dto.RoomInfoResponse;
 
@@ -23,5 +24,8 @@ public interface DisturbingApi {
 
     @POST("members/login")
     Call<LoginResponse> postLogin(@Body LoginRequest loginRequest);
+
+    @POST("room")
+    Call<RoomInfoResponse> createRoom(@Body CreateRoomRequest createRoomRequest);
 
 }
