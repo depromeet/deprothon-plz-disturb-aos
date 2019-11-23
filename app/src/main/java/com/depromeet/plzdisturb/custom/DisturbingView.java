@@ -1,6 +1,5 @@
 package com.depromeet.plzdisturb.custom;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
@@ -17,6 +16,8 @@ import java.util.List;
 import java.util.Random;
 
 public class DisturbingView extends FrameLayout {
+
+    private static final int BASE_MARGIN = 30;
 
     private Random random;
     private Rect nextPosition;
@@ -118,7 +119,12 @@ public class DisturbingView extends FrameLayout {
 
     private boolean isValidPosition(Rect newPosition) {
         for (int i = 0; i < positionMap.size(); i++) {
-            Rect position = positionMap.get(positionMap.keyAt(i));
+            Rect position = new Rect(positionMap.get(positionMap.keyAt(i)));
+            position.left -= BASE_MARGIN;
+            position.right += BASE_MARGIN;
+            position.top -= BASE_MARGIN;
+            position.bottom += BASE_MARGIN;
+
             if (position.intersect(newPosition)) {
                 return false;
             }
