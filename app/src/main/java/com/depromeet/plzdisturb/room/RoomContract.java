@@ -1,10 +1,10 @@
-package com.depromeet.plzdisturb.disturbing;
+package com.depromeet.plzdisturb.room;
 
 import com.depromeet.plzdisturb.model.User;
 
 import java.util.List;
 
-public interface DisturbingContract {
+public interface RoomContract {
 
     interface View {
 
@@ -16,20 +16,18 @@ public interface DisturbingContract {
 
         void removeUser(int userId);
 
-        void showDisturbingUI();
-
-        void hideDisturbingUI();
-
         void showToast(String msg);
 
+        void goDisturbingScreen();
     }
 
     interface Presenter {
 
-        void load(List<User> userList);
+        void start();
 
-        void disturb(int userId);
+        void invite();
+
+        void onClickBtnStart();
 
     }
-
 }

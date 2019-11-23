@@ -62,7 +62,6 @@ public class ProfileView extends LinearLayout {
                         break;
                     case MotionEvent.ACTION_UP:
                         removeCallbacks(disturbingRunnable);
-                        listener.onFreeEvent(userId);
                         break;
                 }
 
@@ -75,7 +74,7 @@ public class ProfileView extends LinearLayout {
         userId = user.getId();
         tvName.setText(user.getName());
         Glide.with(this)
-                .load(user.getProfileUrl())
+                .load(user.getImageUrl())
                 .circleCrop()
                 .into(ivProfile);
     }
