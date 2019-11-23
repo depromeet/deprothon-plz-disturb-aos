@@ -6,9 +6,9 @@ public class User implements Serializable {
 
     private int id;
     private String name;
-    private String imageUrl;
+    private Image imageUrl;
 
-    public User(int id, String name, String imageUrl) {
+    public User(int id, String name) {
         this.id = id;
         this.name = name;
         this.imageUrl = imageUrl;
@@ -23,6 +23,10 @@ public class User implements Serializable {
     }
 
     public String getImageUrl() {
-        return imageUrl;
+        return imageUrl.url;
+    }
+
+    class Image {
+        private String url;
     }
 }

@@ -22,20 +22,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btn_add.setOnClickListener {
-            var list = ArrayList<User>()
-            list.add(User(0, name + 0, profileUrl))
-            list.add(User(1, name + 1, profileUrl))
-            list.add(User(2, name + 2, profileUrl))
-            list.add(User(3, name + 3, profileUrl))
-            list.add(User(4, name + 4, profileUrl))
-            list.add(User(5, name + 5, profileUrl))
-            list.add(User(6, name + 6, profileUrl))
-            list.add(User(7, name + 7, profileUrl))
-            list.add(User(8, name + 8, profileUrl))
-            list.add(User(9, name + 9, profileUrl))
-            val intent = Intent(this, DisturbingActivity::class.java)
-            intent.putExtra("members", list)
-            startActivity(intent)
         }
     }
 
