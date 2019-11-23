@@ -6,11 +6,6 @@
     android:orientation="vertical"
     tools:context=".disturbing.DisturbingActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/a_disturbing_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,8 +18,7 @@
     <com.depromeet.plzdisturb.custom.DisturbingView
         android:id="@+id/a_disturbing_dv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/a_disturbing_toolbar" />
+        android:layout_height="match_parent" />
 
     <ImageView
         android:id="@+id/a_disturbing_cover_iv"
