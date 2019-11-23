@@ -11,6 +11,7 @@ public class DisturbingService {
 
 	public static DisturbingApi getApi() {
 		HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+		interceptor.level(HttpLoggingInterceptor.Level.BODY);
 		OkHttpClient client = new OkHttpClient.Builder()
 				.addInterceptor(interceptor)
 				.addInterceptor(new AuthIntercepter())

@@ -5,13 +5,16 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.PreferenceManager
 import com.bumptech.glide.Glide
 import com.depromeet.plzdisturb.R
 import com.depromeet.plzdisturb.data.dto.LoginRequest
 import com.depromeet.plzdisturb.data.dto.LoginResponse
+import com.depromeet.plzdisturb.deleteAccessToken
 import com.depromeet.plzdisturb.makeroom.MakeRoomActivity
 import com.depromeet.plzdisturb.network.DisturbingService
 import com.depromeet.plzdisturb.updateAccessToken
+import com.google.android.gms.common.util.SharedPreferencesUtils
 import com.google.firebase.iid.FirebaseInstanceId
 import com.kakao.auth.ISessionCallback
 import com.kakao.auth.Session
@@ -29,6 +32,8 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        deleteAccessToken(this)
 
         Session.getCurrentSession().addCallback(sessionCallback)
         Session.getCurrentSession().checkAndImplicitOpen()
@@ -60,7 +65,6 @@ class LoginActivity : AppCompatActivity() {
         override fun onSessionOpened() {
             // 성공시 작업
             val accessToken = Session.getCurrentSession().tokenInfo.accessToken
-            Log.e(TAG, accessToken)
 
             // token 을 가지고 로그인 시킨다.
             FirebaseInstanceId.getInstance().instanceId
@@ -74,9 +78,10 @@ class LoginActivity : AppCompatActivity() {
                     val deviceToken = task.result?.token
 
                     // Log and toast
-                    Log.e(TAG, "InstanceID Token: $deviceToken")
+                    Log.e(TAG, "InstanceID Token: $deviceToken, accessToken: $accessToken")
 
-                    DisturbingService.getApi().postLogin(LoginRequest(accessToken, deviceToken))
+                    val loginRequest = LoginRequest(accessToken, deviceToken)
+                    DisturbingService.getApi().postLogin(loginRequest)
                         .enqueue(object : Callback<LoginResponse> {
                             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                                 // Todo 실패 안할꺼야!!!
@@ -86,12 +91,14 @@ class LoginActivity : AppCompatActivity() {
                                 call: Call<LoginResponse>,
                                 response: Response<LoginResponse>
                             ) {
-
-                                Log.e(TAG, "asdfsadf ${response}")
                                 response.body()?.let {
-                                    Log.e(TAG, it.accesstoken)
                                     updateAccessToken(it.accesstoken, this@LoginActivity)
-                                    startActivity(Intent(this@LoginActivity, MakeRoomActivity::class.java))
+                                    startActivity(
+                                        Intent(
+                                            this@LoginActivity,
+                                            MakeRoomActivity::class.java
+                                        )
+                                    )
                                 }
                             }
 
