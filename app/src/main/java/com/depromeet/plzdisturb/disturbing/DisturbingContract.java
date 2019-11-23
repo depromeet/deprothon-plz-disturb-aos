@@ -20,11 +20,13 @@ public interface DisturbingContract {
 
         void hideDisturbingUI();
 
+        void showToast(String msg);
+
     }
 
     interface Presenter {
 
-        void start();
+        void load(List<User> userList);
 
         void disturb(int userId);
 
