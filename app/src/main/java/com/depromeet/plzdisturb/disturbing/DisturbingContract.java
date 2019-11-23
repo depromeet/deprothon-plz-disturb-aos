@@ -2,7 +2,7 @@ package com.depromeet.plzdisturb.disturbing;
 
 import com.depromeet.plzdisturb.model.User;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public interface DisturbingContract {
 
@@ -10,7 +10,7 @@ public interface DisturbingContract {
 
         boolean isActive();
 
-        void addUserList(List<User> userList);
+        void addUserList(ArrayList<User> userList);
 
         void addUser(User user);
 
@@ -26,7 +26,7 @@ public interface DisturbingContract {
 
     interface Presenter {
 
-        void load(List<User> userList);
+        void load(ArrayList<User> userList);
 
         void disturb(int userId);
 

@@ -18,7 +18,7 @@ import com.depromeet.plzdisturb.model.User;
 public class ProfileView extends LinearLayout {
 
     private int userId;
-    private OnEventListener listener;
+    private OnUserEventListener listener;
     private ImageView ivProfile;
     private TextView tvName;
 
@@ -42,7 +42,7 @@ public class ProfileView extends LinearLayout {
         init();
     }
 
-    public void setOnEventListener(OnEventListener listener) {
+    public void setOnEventListener(OnUserEventListener listener) {
         this.listener = listener;
         setOnTouchListener(new OnTouchListener() {
 

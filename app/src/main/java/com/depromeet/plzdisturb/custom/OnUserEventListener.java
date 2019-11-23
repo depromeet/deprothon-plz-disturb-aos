@@ -1,6 +1,6 @@
 package com.depromeet.plzdisturb.custom;
 
-public interface OnEventListener {
+public interface OnUserEventListener {
 
     void onDisturbingEvent(int userId);
 

@@ -17,7 +17,7 @@ public class RoomPresenter implements RoomContract.Presenter {
     }
 
     @Override
-    public void start() {
+    public void load() {
         repository.getRoomInfo(code, new DisturbingRepository.RoomCallback() {
 
             @Override
@@ -38,6 +38,11 @@ public class RoomPresenter implements RoomContract.Presenter {
                 view.showToast(msg);
             }
         });
+    }
+
+    @Override
+    public void start() {
+        view.goDisturbingScreen();
     }
 
     @Override

@@ -23,7 +23,7 @@ public class DisturbingView extends FrameLayout {
     private Rect nextPosition;
     private SparseArray<ProfileView> profileViewMap;
     private SparseArray<Rect> positionMap;
-    private OnEventListener listener;
+    private OnUserEventListener listener;
 
     private int leftMarginLimit;
     private int topMarginLimit;
@@ -67,7 +67,7 @@ public class DisturbingView extends FrameLayout {
         topMarginLimit = MeasureSpec.getSize(heightMeasureSpec) - profileViewHeight;
     }
 
-    public void setListener(OnEventListener listener) {
+    public void setListener(OnUserEventListener listener) {
         this.listener = listener;
     }
 

@@ -22,7 +22,7 @@ public class MemberAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     private static final int ITEM_MEMBER = 0;
     private static final int ITEM_INVITATION = 1;
 
-    List<User> memberList;
+    ArrayList<User> memberList;
 
     @Override
     public int getItemViewType(int position) {
@@ -33,7 +33,7 @@ public class MemberAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         memberList = new ArrayList<>();
     }
 
-    public void setMembers(List<User> memberList) {
+    public void setMembers(ArrayList<User> memberList) {
         this.memberList = memberList;
         notifyDataSetChanged();
     }
@@ -77,7 +77,7 @@ public class MemberAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         public void bind(User member) {
             Glide.with(ivProfile)
-                    .load(member.getProfileUrl())
+                    .load(member.getImageUrl())
                     .circleCrop()
                     .into(ivProfile);
 

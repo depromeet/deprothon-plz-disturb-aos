@@ -3,7 +3,7 @@ package com.depromeet.plzdisturb.disturbing;
 import com.depromeet.plzdisturb.data.DisturbingRepository;
 import com.depromeet.plzdisturb.model.User;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class DisturbingPresenter implements DisturbingContract.Presenter {
 
@@ -16,7 +16,7 @@ public class DisturbingPresenter implements DisturbingContract.Presenter {
     }
 
     @Override
-    public void load(List<User> userList) {
+    public void load(ArrayList<User> userList) {
         view.addUserList(userList);
     }
 

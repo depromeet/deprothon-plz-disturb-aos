@@ -6,18 +6,16 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import com.depromeet.plzdisturb.R;
 import com.depromeet.plzdisturb.custom.DisturbingView;
-import com.depromeet.plzdisturb.custom.OnEventListener;
+import com.depromeet.plzdisturb.custom.OnUserEventListener;
 import com.depromeet.plzdisturb.data.DisturbingRepositories;
 import com.depromeet.plzdisturb.model.User;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class DisturbingActivity extends AppCompatActivity implements DisturbingContract.View, OnEventListener {
+public class DisturbingActivity extends AppCompatActivity implements DisturbingContract.View, OnUserEventListener {
 
     private DisturbingView view;
     private DisturbingContract.Presenter presenter;
@@ -56,7 +54,7 @@ public class DisturbingActivity extends AppCompatActivity implements DisturbingC
     }
 
     @Override
-    public void addUserList(List<User> userList) {
+    public void addUserList(ArrayList<User> userList) {
         view.post(() -> view.addUserList(userList));
     }
 
@@ -84,4 +82,5 @@ public class DisturbingActivity extends AppCompatActivity implements DisturbingC
     public void showToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
+
 }

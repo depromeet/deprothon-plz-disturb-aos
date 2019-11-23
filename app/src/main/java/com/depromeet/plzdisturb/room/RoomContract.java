@@ -2,7 +2,7 @@ package com.depromeet.plzdisturb.room;
 
 import com.depromeet.plzdisturb.model.User;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public interface RoomContract {
 
@@ -10,7 +10,7 @@ public interface RoomContract {
 
         boolean isActive();
 
-        void addUserList(List<User> userList);
+        void addUserList(ArrayList<User> userList);
 
         void addUser(User user);
 
@@ -19,9 +19,13 @@ public interface RoomContract {
         void showToast(String msg);
 
         void goDisturbingScreen();
+
+        void showShareIntent(String link);
     }
 
     interface Presenter {
+
+        void load();
 
         void start();
 
