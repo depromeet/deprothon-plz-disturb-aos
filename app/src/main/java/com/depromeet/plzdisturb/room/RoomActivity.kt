@@ -66,4 +66,11 @@ class RoomActivity : AppCompatActivity() {
 
     }
 
+    private fun handleDeepLink() {
+        val uriData = intent?.data
+        uriData?.getQueryParameter("code")?.let {
+
+        }
+    }
+
 }

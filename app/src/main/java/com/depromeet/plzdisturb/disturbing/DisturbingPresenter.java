@@ -38,23 +38,4 @@ public class DisturbingPresenter implements DisturbingContract.Presenter {
             }
         });
     }
-
-    @Override
-    public void free(int userId) {
-        repository.free(userId, new DisturbingRepository.CommonCallback() {
-            @Override
-            public void onSuccess() {
-
-            }
-
-            @Override
-            public void onFailure(String msg) {
-                if (!view.isActive()) {
-                    return;
-                }
-
-                view.showToast(msg);
-            }
-        });
-    }
 }

@@ -6,12 +6,12 @@ public class User implements Serializable {
 
     private int id;
     private String name;
-    private String profileUrl;
+    private String imageUrl;
 
-    public User(int id, String name, String profileUrl) {
+    public User(int id, String name, String imageUrl) {
         this.id = id;
         this.name = name;
-        this.profileUrl = profileUrl;
+        this.imageUrl = imageUrl;
     }
 
     public int getId() {
@@ -22,7 +22,7 @@ public class User implements Serializable {
         return name;
     }
 
-    public String getProfileUrl() {
-        return profileUrl;
+    public String getImageUrl() {
+        return imageUrl;
     }
 }

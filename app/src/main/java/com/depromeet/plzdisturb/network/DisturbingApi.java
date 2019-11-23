@@ -1,5 +1,9 @@
 package com.depromeet.plzdisturb.network;
 
+import com.depromeet.plzdisturb.data.dto.CommonResponse;
+import com.depromeet.plzdisturb.data.dto.DisturbRequest;
+import com.depromeet.plzdisturb.data.dto.RoomInfoResponse;
+
 import com.depromeet.plzdisturb.data.dto.LoginRequest;
 import com.depromeet.plzdisturb.data.dto.LoginResponse;
 
@@ -11,11 +15,11 @@ import retrofit2.http.Query;
 
 public interface DisturbingApi {
 
-//	@GET("genetory")
-//    Call<SummonerInfoResponse> getSummonerInfo();
+	@GET("room")
+    Call<RoomInfoResponse> getRoomInfo(@Query("code") String code);
 
-//	@GET("genetory/matches")
-//    Call<GameListResponse> getGameList(@Query("lastMatch") long lastGameCreatedAt);
+	@POST("disturb")
+    Call<CommonResponse> postDisturb(@Body DisturbRequest request);
 
     @POST("members/login")
     Call<LoginResponse> postLogin(@Body LoginRequest loginRequest);
