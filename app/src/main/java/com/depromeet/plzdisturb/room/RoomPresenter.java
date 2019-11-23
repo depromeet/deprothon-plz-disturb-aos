@@ -47,7 +47,7 @@ public class RoomPresenter implements RoomContract.Presenter {
 
     @Override
     public void invite() {
-
+        view.showShareIntent("https://lee-kyungseok.github.io/temp/index.html?code=" + code);
     }
 
     @Override
