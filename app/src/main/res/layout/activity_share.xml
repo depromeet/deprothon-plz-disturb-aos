@@ -6,11 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".share.ShareActivity">
 
-    <Button
-        android:id="@+id/btn_share"
+    <TextView
+        android:id="@+id/tv_code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="딥링크 테스트!!!!"
+        android:textSize="60sp"
+        android:textColor="#000000"
+        android:letterSpacing="-0.05"
+        tools:text="ABCDEFG"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="#808080"
+        android:letterSpacing="-0.05"
+        tools:text="코드를 공유하고 친구를 초대하세요!"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_code_share"/>
+
+    <Button
+        android:id="@+id/btn_code_share"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:text="초대코드 보내기"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:letterSpacing="-0.05"
+        android:background="@drawable/bg_btn_code"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintVertical_bias="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
