@@ -17,7 +17,7 @@ public interface DisturbingApi {
 //	@GET("genetory/matches")
 //    Call<GameListResponse> getGameList(@Query("lastMatch") long lastGameCreatedAt);
 
-    @POST("/members/login")
+    @POST("members/login")
     Call<LoginResponse> postLogin(@Body LoginRequest loginRequest);
 
 }

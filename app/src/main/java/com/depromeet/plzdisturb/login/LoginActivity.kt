@@ -60,6 +60,7 @@ class LoginActivity : AppCompatActivity() {
         override fun onSessionOpened() {
             // 성공시 작업
             val accessToken = Session.getCurrentSession().tokenInfo.accessToken
+            Log.e(TAG, accessToken)
 
             // token 을 가지고 로그인 시킨다.
             FirebaseInstanceId.getInstance().instanceId
@@ -70,12 +71,12 @@ class LoginActivity : AppCompatActivity() {
                     }
 
                     // Get new Instance ID token
-                    val firebaseToken = task.result?.token
+                    val deviceToken = task.result?.token
 
                     // Log and toast
-                    Log.d(TAG, "InstanceID Token: $firebaseToken")
+                    Log.e(TAG, "InstanceID Token: $deviceToken")
 
-                    DisturbingService.getApi(this@LoginActivity).postLogin(LoginRequest(accessToken, firebaseToken))
+                    DisturbingService.getApi(this@LoginActivity).postLogin(LoginRequest(accessToken, deviceToken))
                         .enqueue(object : Callback<LoginResponse> {
                             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                                 // Todo 실패 안할꺼야!!!
@@ -85,7 +86,10 @@ class LoginActivity : AppCompatActivity() {
                                 call: Call<LoginResponse>,
                                 response: Response<LoginResponse>
                             ) {
+
+                                Log.e(TAG, "asdfsadf ${response}")
                                 response.body()?.let {
+                                    Log.e(TAG, it.accesstoken)
                                     updateAccessToken(it.accesstoken, this@LoginActivity)
                                     startActivity(Intent(this@LoginActivity, MakeRoomActivity::class.java))
                                 }

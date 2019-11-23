@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DisturbingService {
 
-	private static final String API_URL = "http://192.168.0.26:8080/api";
+	private static final String API_URL = "http://192.168.0.26:8080/api/";
 
 	public static DisturbingApi getApi(Context context) {
 		HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
