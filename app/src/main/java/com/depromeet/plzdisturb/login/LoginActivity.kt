@@ -76,7 +76,7 @@ class LoginActivity : AppCompatActivity() {
                     // Log and toast
                     Log.e(TAG, "InstanceID Token: $deviceToken")
 
-                    DisturbingService.getApi(this@LoginActivity).postLogin(LoginRequest(accessToken, deviceToken))
+                    DisturbingService.getApi().postLogin(LoginRequest(accessToken, deviceToken))
                         .enqueue(object : Callback<LoginResponse> {
                             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                                 // Todo 실패 안할꺼야!!!

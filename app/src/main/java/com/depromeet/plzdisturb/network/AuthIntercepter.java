@@ -2,6 +2,7 @@ package com.depromeet.plzdisturb.network;
 
 import android.content.Context;
 
+import com.depromeet.plzdisturb.PlzDistrubApplication;
 import com.depromeet.plzdisturb.PreferenceUtilKt;
 
 import org.jetbrains.annotations.NotNull;
@@ -16,8 +17,8 @@ public class AuthIntercepter implements Interceptor {
 
     private Context context;
 
-    public AuthIntercepter(Context context) {
-        this.context = context;
+    public AuthIntercepter() {
+        this.context = PlzDistrubApplication.getAppInstance().getApplicationContext();
     }
 
     @NotNull

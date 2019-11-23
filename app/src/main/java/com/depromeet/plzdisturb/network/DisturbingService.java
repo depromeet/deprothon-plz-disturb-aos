@@ -1,7 +1,5 @@
 package com.depromeet.plzdisturb.network;
 
-import android.content.Context;
-
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -11,11 +9,11 @@ public class DisturbingService {
 
 	private static final String API_URL = "http://192.168.0.26:8080/api/";
 
-	public static DisturbingApi getApi(Context context) {
+	public static DisturbingApi getApi() {
 		HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
 		OkHttpClient client = new OkHttpClient.Builder()
 				.addInterceptor(interceptor)
-				.addInterceptor(new AuthIntercepter(context))
+				.addInterceptor(new AuthIntercepter())
 				.build();
 
 		Retrofit retrofit = new Retrofit.Builder()
