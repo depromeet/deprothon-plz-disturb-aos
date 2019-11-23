@@ -14,19 +14,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".disturbing.DisturbingActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".room.RoomActivity" />
         <activity android:name=".makeroom.MakeRoomActivity"></activity>
-        <activity android:name=".disturbing.DisturbingActivity" />
-        <activity android:name=".room.RoomActivity">
 
-        </activity>
         <activity android:name=".share.ShareActivity">
 
-<!--             <intent-filter>-->
-<!--                 <action android:name="android.intent.action.MAIN" />-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
 
-<!--                 <category android:name="android.intent.category.LAUNCHER" />-->
-<!--             </intent-filter>-->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -40,18 +41,22 @@
             </intent-filter>
         </activity>
         <activity android:name=".login.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+
+
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
         </activity>
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_sdk_api_key" />
 
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity">
+
+        </activity>
     </application>
 
 </manifest>
