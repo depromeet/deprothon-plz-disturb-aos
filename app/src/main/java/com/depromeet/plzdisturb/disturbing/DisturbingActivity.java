@@ -28,9 +28,6 @@ public class DisturbingActivity extends AppCompatActivity implements DisturbingC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_disturbing);
-        Toolbar toolbar = findViewById(R.id.a_disturbing_toolbar);
-        setSupportActionBar(toolbar);
-        final View actionBar = getLayoutInflater().inflate(R.layout.actionbar, toolbar);
 
         presenter = new DisturbingPresenter(DisturbingRepositories.getRepository(), this);
 
