@@ -1,5 +1,7 @@
 package com.depromeet.plzdisturb.network;
 
+import android.content.Context;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -7,11 +9,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DisturbingService {
 
-	private static final String API_URL = "https://codingtest.op.gg/api/summoner/";
+	private static final String API_URL = "http://192.168.0.26:8080/api/";
 
-	public static DisturbingApi getApi() {
+	public static DisturbingApi getApi(Context context) {
 		HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-		OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
+		OkHttpClient client = new OkHttpClient.Builder()
+				.addInterceptor(interceptor)
+				.addInterceptor(new AuthIntercepter(context))
+				.build();
 
 		Retrofit retrofit = new Retrofit.Builder()
 				.baseUrl(API_URL)

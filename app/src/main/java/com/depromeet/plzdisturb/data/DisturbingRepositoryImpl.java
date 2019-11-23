@@ -1,5 +1,7 @@
 package com.depromeet.plzdisturb.data;
 
+import android.content.Context;
+
 import com.depromeet.plzdisturb.network.DisturbingApi;
 import com.depromeet.plzdisturb.network.DisturbingService;
 
@@ -26,4 +28,7 @@ public class DisturbingRepositoryImpl implements DisturbingRepository {
         // @TODO : (jonghyo) api 연동 필요
         callback.onSuccess();
     }
+	public DisturbingRepositoryImpl(Context context) {
+		api = DisturbingService.getApi(context);
+	}
 }
