@@ -9,9 +9,21 @@ import retrofit2.Response;
 
 public class DisturbingRepositoryImpl implements DisturbingRepository {
 
-	private DisturbingApi api;
+    private DisturbingApi api;
 
-	public DisturbingRepositoryImpl() {
-		api = DisturbingService.getApi();
-	}
+    public DisturbingRepositoryImpl() {
+        api = DisturbingService.getApi();
+    }
+
+    @Override
+    public void disturb(int userId, CommonCallback callback) {
+        // @TODO : (jonghyo) api 연동 필요
+        callback.onSuccess();
+    }
+
+    @Override
+    public void free(int userId, CommonCallback callback) {
+        // @TODO : (jonghyo) api 연동 필요
+        callback.onSuccess();
+    }
 }
